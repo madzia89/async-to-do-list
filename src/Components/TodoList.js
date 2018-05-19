@@ -14,6 +14,13 @@ const Tasks = (props) => (
             name={'addTasks'}
             onChange={props.onChange}
             value={props.newText}
+            onKeyPress={(ev) => {
+                if ((ev.key === 'Enter') && (props.newText !== '')) {
+                    props.addTask()
+                    props.clear()
+                }
+            }
+            }
 
         />
         <RaisedButton
