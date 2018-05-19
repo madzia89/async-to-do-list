@@ -10,8 +10,11 @@ const logUserLogIn = () => (dispatch, getState) => {
     const userUid = getState().auth.user.uid
 
     database.ref(`/users/${userUid}/loginsLogs`)
-        .push({ timestamp: Date.now() })
+        .push({
+            timestamp: Date.now()
+        })
 }
+
 
 export const initAuthUserSync = () => (dispatch, getState) => {
     auth.onAuthStateChanged(
@@ -35,7 +38,7 @@ export const logOut = () => (dispatch, getState) => {
 
 const initialState = {
     isUserLoggedIn: false, // wstępnie użytkownik nie będzie zalogowany
-    user: null,
+    user: null
 }
 
 export default (state = initialState, action) => {
