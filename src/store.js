@@ -1,9 +1,13 @@
 import {createStore, combineReducers, compose, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
-import todoList, {fetchTasks} from './state/todoList'
+import auth, {initAuthUserSync} from './state/auth'
+import todoList, {initTasksSync} from './state/todoList'
+
 
 export const reducer = combineReducers({
-    todoList
+    auth,
+    todoList,
+
 })
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
@@ -13,5 +17,6 @@ export const store = createStore(
         applyMiddleware(thunk)
     )
 )
+store.dispatch(initAuthUserSync())
+store.dispatch(initTasksSync())
 
-store.dispatch(fetchTasks())

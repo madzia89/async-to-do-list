@@ -1,19 +1,25 @@
 import {database} from "../firebase";
 
-const NEW_TASK = 'todoList/NEW_TASK'
-const ADD = 'todoList/ADD'
+const UPDATE_ARR = 'todoList/UPDATE_ARR'
+const ON_CHANGE = 'todoList/ON_CHANGE'
+const ADD_TASK = 'todoList/ADD_TASK'
 
-export const newTask = (newValue) => ({
-    type: NEW_TASK,
+export const onChange = (newValue) => ({
+    type: ON_CHANGE,
     newValue
 })
-export const add = () => ({ type: ADD })
 
-export const set = () => (dispatch, getState) => {
+export const updateArr = (newValue) => ({
+    type: UPDATE_ARR,
+    newValue
+})
+
+export const addTask = () => (dispatch, getState) => {
     const state = getState()
-    database.ref('/tasks').set(state.todoList.tasks)
+    database.ref('tasks').set(state.todoList.tasks.concat(
+        state.todoList.newText
+    ))
 }
-
 
 const mapObjectToArray = (obj) => (
     Object.entries(obj || {})
@@ -24,38 +30,35 @@ const mapObjectToArray = (obj) => (
                 {key, value}
         ))
 )
-
-export const fetchTasks = () => (dispatch, getState) => {
-    database.ref('/tasks').on
-    ('value', (snapshot) => dispatch(
-            add(mapObjectToArray(snapshot.val())
-            )
-
+export const initTasksSync = () => (dispatch, getState) => {
+    database.ref('/tasks').on(
+        'value',
+        (snapshot) => dispatch(
+            updateArr
+                (snapshot.val())
         )
     )
 }
 
+
 const initialState = {
-    newTaskText: '',
-    tasks: ['mytask', 'aaa', 'bbb', 'ccc']
+    newText: '',
+    tasks: ['aa', 'bb']
 }
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case NEW_TASK :
+        case ON_CHANGE:
             return {
                 ...state,
-                newTaskText: action.newValue,
+                newText: action.newValue
             }
-        case ADD :
-            return state.newTaskText ?
-                {
+        case UPDATE_ARR:
+            return{
                     ...state,
-                    tasks: state.tasks.concat(state.newTaskText)
+                    tasks: action.newValue
                 }
-                : state
         default:
             return state
-
     }
 }
