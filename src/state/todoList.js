@@ -1,15 +1,15 @@
 import {database} from "../firebase";
 
 const NEW_TASK = 'todoList/NEW_TASK'
-const SET = 'todoList/ADD'
+const ADD = 'todoList/ADD'
 
 export const newTask = (newValue) => ({
     type: NEW_TASK,
     newValue
 })
-export const set = () => ({ type: SET })
+export const add = () => ({ type: ADD })
 
-export const add = () => (dispatch, getState) => {
+export const set = () => (dispatch, getState) => {
     const state = getState()
     database.ref('/tasks').set(state.todoList.tasks)
 }
@@ -25,19 +25,19 @@ const mapObjectToArray = (obj) => (
         ))
 )
 
-export const initListSync = () => (dispatch, getState) => {
-    database.ref('/tasks').on(
-        'value',
-        (snapshot) => dispatch(
-            add(snapshot.val()
+export const fetchTasks = () => (dispatch, getState) => {
+    database.ref('/tasks').on
+    ('value', (snapshot) => dispatch(
+            add(mapObjectToArray(snapshot.val())
             )
+
         )
     )
 }
 
 const initialState = {
     newTaskText: '',
-    tasks: ['mytask', 'aaa', 'bbb', 'sdgs']
+    tasks: ['mytask', 'aaa', 'bbb', 'ccc']
 }
 
 export default (state = initialState, action) => {
@@ -45,9 +45,9 @@ export default (state = initialState, action) => {
         case NEW_TASK :
             return {
                 ...state,
-                newTaskText: action.newValue
+                newTaskText: action.newValue,
             }
-        case SET :
+        case ADD :
             return state.newTaskText ?
                 {
                     ...state,

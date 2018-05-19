@@ -1,5 +1,5 @@
 import React from 'react'
-import todoList, {set, newTask} from '../state/todoList'
+import todoList, {set, add , newTask} from '../state/todoList'
 import {connect} from 'react-redux'
 import {ListItem} from 'material-ui/List'
 import TextField from 'material-ui/TextField'
@@ -31,17 +31,17 @@ const Tasks = (props) => (
         </ul>
     </div>
 )
+const mapDispatchToProps = dispatch => ({
+    set: () => dispatch(set()),
+    newTask: (ev, newValue) => dispatch(newTask(newValue)),
+
+})
 
 const mapStateToProps = state => ({
     tasks: state.todoList.tasks,
     newTaskText: state.todoList.newTaskText
 })
 
-const mapDispatchToProps = dispatch => ({
-    newTask: (ev, newValue) => dispatch(newTask(newValue)),
-    set: () => dispatch(set())
-
-})
 
 
 export default connect(

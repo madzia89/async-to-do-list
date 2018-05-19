@@ -1,6 +1,6 @@
 import {createStore, combineReducers, compose, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
-import todoList, {initListSync} from './state/todoList'
+import todoList, {fetchTasks} from './state/todoList'
 
 export const reducer = combineReducers({
     todoList
@@ -14,4 +14,4 @@ export const store = createStore(
     )
 )
 
-store.dispatch(initListSync())
+store.dispatch(fetchTasks())
