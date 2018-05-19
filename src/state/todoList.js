@@ -1,11 +1,11 @@
 import {database} from "../firebase";
 import auth from './auth'
 
-
 const UPDATE_ARR = 'todoList/UPDATE_ARR'
 const ON_CHANGE = 'todoList/ON_CHANGE'
 const CLEAR = 'todoList/CLEAR'
 const FILTER = 'todoList/FILTER'
+const DELETE_TASK = 'todoList/DELETE_TASK'
 
 export const onChange = (newValue) => ({
     type: ON_CHANGE,
@@ -24,19 +24,27 @@ export const filter = (newFilterValue) => ({
     newFilterValue
 })
 
+export const deleteTask = (index) => ({
+    type: DELETE_TASK,
+    index
+})
+
 export const addTask = () => (dispatch, getState) => {
     const state = getState()
     database.ref(`users/${auth.uid}/tasks`).set(state.todoList.tasks.concat(
         state.todoList.newText
     ))
 }
+export const updateAfterDelete = () => (dispatch, getState) => {
+    const state = getState()
+    database.ref(`users/${auth.uid}/tasks`).set(state.todoList.tasks)
+}
 
 export const initTasksSync = () => (dispatch, getState) => {
     database.ref(`users/${auth.uid}/tasks`).on(
         'value',
         (snapshot) => dispatch(
-            updateArr
-                (snapshot.val() || [])
+            updateArr(snapshot.val() || [])
         )
     )
 }
@@ -69,6 +77,11 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 newFilter: action.newFilterValue
+            }
+        case DELETE_TASK:
+            return{
+                ...state,
+                tasks: state.tasks.filter((task, index) => index !== action.index )
             }
         default:
             return state
