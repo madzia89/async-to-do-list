@@ -1,5 +1,5 @@
 import React from 'react'
-import todoList, {addTask, onChange} from '../state/todoList'
+import todoList, {addTask, onChange, clear} from '../state/todoList'
 import {connect} from 'react-redux'
 import {ListItem} from 'material-ui/List'
 import TextField from 'material-ui/TextField'
@@ -19,7 +19,11 @@ const Tasks = (props) => (
         <RaisedButton
             label={'ADD TASK'}
             primary={true}
-            onClick={() => props.addTask()}
+            onClick={() => {
+                props.addTask()
+                props.clear()
+            }
+            }
         />
         <ul>
             {props.tasks.map((task, i) => (
@@ -39,7 +43,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     onChange: (ev, newValue) => dispatch(onChange(newValue)),
-    addTask: () => dispatch(addTask())
+    addTask: () => dispatch(addTask()),
+    clear: () => dispatch(clear())
 
 })
 
