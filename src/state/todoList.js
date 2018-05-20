@@ -31,17 +31,18 @@ export const deleteTask = (index) => ({
 
 export const addTask = () => (dispatch, getState) => {
     const state = getState()
-    database.ref(`users/${auth.uid}/tasks`).set(state.todoList.tasks.concat(
+    database.ref(`users/${state.auth.user.uid}/tasks`).set(state.todoList.tasks.concat(
         state.todoList.newText
     ))
 }
 export const updateAfterDelete = () => (dispatch, getState) => {
     const state = getState()
-    database.ref(`users/${auth.uid}/tasks`).set(state.todoList.tasks)
+    database.ref(`users/${state.auth.user.uid}/tasks`).set(state.todoList.tasks)
 }
 
 export const initTasksSync = () => (dispatch, getState) => {
-    database.ref(`users/${auth.uid}/tasks`).on(
+    const state = getState()
+    database.ref(`users/${state.auth.user.uid}/tasks`).on(
         'value',
         (snapshot) => dispatch(
             updateArr(snapshot.val() || [])

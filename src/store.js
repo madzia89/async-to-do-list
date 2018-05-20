@@ -18,4 +18,3 @@ export const store = createStore(
     )
 )
 store.dispatch(initAuthUserSync())
-store.dispatch(initTasksSync())
