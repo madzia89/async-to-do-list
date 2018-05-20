@@ -49,8 +49,8 @@ const Tasks = (props) => (
                 />
             </Col>
         </Row>
-        <Paper>
-            <Row center={'md'}>
+        <Paper style={{margin: '10px'}}>
+            <Row center={'xs'}>
                 <Col md={4}>
                     <TextField
                         name={'filterTasks'}
@@ -72,7 +72,8 @@ const Tasks = (props) => (
                                         </Col>
                                         <Col xs={6}>
                                             <RaisedButton
-                                                label={'delete task'}
+                                                backgroundColor={'#ff6666'}
+                                                label={'delete'}
                                                 onClick={() => {
                                                     props.deleteTask(i)
                                                     props.updateAfterDelete()

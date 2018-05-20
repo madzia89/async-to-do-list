@@ -1,7 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import { logInByGoogle } from '../state/auth' //odpowiada za logowanie googlem
+import {logInByGoogle} from '../state/auth' //odpowiada za logowanie googlem
 import LogInByGoogle from "./LogInByGoogle"
+import {Grid, Row, Col} from 'react-flexbox-grid'
+import AppBar from 'material-ui/AppBar'
+
 
 const Auth = (props) => (
     <div>
@@ -9,9 +12,19 @@ const Auth = (props) => (
             props.isUserLoggedIn ?
                 props.children
                 :
-                <LogInByGoogle
-                    onLogInHandler={props.logInByGoogle}
-                />
+                <div>
+                    <AppBar
+                        title="Home"
+                        showMenuIconButton={false}
+                        style={{backgroundColor: '#AD1457'}}
+                    />
+                    <h1 style={{textAlign: 'center'}}>Log in to add tasks</h1>
+                    <Row center={'xs'}>
+                        <LogInByGoogle
+                            onLogInHandler={props.logInByGoogle}
+                        />
+                    </Row>
+                </div>
         }
     </div>
 )
