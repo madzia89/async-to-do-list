@@ -1,7 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import { logInByGoogle } from '../state/auth' //odpowiada za logowanie googlem
+import {logInByGoogle} from '../state/auth' //odpowiada za logowanie googlem
 import LogInByGoogle from "./LogInByGoogle"
+import SignUp from './SignUp'
+import LogInWithEmail from './LogInWithEmail'
+import {logInWithEmail, onSignUpClick} from "../state/formsState";
 
 const Auth = (props) => (
     <div>
@@ -9,9 +12,13 @@ const Auth = (props) => (
             props.isUserLoggedIn ?
                 props.children
                 :
-                <LogInByGoogle
-                    onLogInHandler={props.logInByGoogle}
-                />
+                <div>
+                    <LogInByGoogle
+                        onLogInHandler={props.logInByGoogle}
+                    />
+                    <LogInWithEmail/>
+                    <SignUp/>
+                </div>
         }
     </div>
 )
@@ -21,7 +28,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    logInByGoogle: () => dispatch(logInByGoogle())
+    logInByGoogle: () => dispatch(logInByGoogle()),
+
 })
 
 export default connect(

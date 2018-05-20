@@ -16,16 +16,7 @@ const logUserLogIn = () => (dispatch, getState) => {
             timestamp: Date.now()
         })
 }
-export const logInWithEmail = (email, password) => (dispatch, getState) => {
-    auth.signInWithEmailAndPassword(email, password)
-}
-export const signUp = (email, password) => (dispatch, getState) => {
-    auth.createUserWithEmailAndPassword(email, password)
-}
 
-export const logOut = () => (dispatch, getState) => {
-    auth.signOut()
- }
 
 export const initAuthUserSync = () => (dispatch, getState) => {
     auth.onAuthStateChanged(
@@ -46,7 +37,7 @@ export const logInByGoogle = () => (dispatch, getState) => {
 }
 
 const initialState = {
-    isUserLoggedIn: false, // wstępnie użytkownik nie będzie zalogowany
+    isUserLoggedIn: false,
     user: null
 }
 
