@@ -4,6 +4,7 @@ import {logInByGoogle} from '../state/auth' //odpowiada za logowanie googlem
 import LogInByGoogle from "./LogInByGoogle"
 import SignUp from './SignUp'
 import LogInWithEmail from './LogInWithEmail'
+import AppBar from 'material-ui/AppBar'
 
 
 const Auth = (props) => (
@@ -13,11 +14,16 @@ const Auth = (props) => (
                 props.children
                 :
                 <div>
-                    <LogInByGoogle
-                        onLogInHandler={props.logInByGoogle}
-                    />
-                    <LogInWithEmail/>
-                    <SignUp/>
+                    <AppBar title="Home"
+                            showMenuIconButton={false}
+                            style={{backgroundColor: '#AD1457'}}/>
+                    <div>
+                        <LogInByGoogle
+                            onLogInHandler={props.logInByGoogle}
+                        />
+                        <LogInWithEmail/>
+                        <SignUp/>
+                    </div>
                 </div>
         }
     </div>
