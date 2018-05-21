@@ -1,5 +1,4 @@
 import {auth, database, googleProvider} from "../firebase";
-import {store} from "../store";
 import {initTasksSync} from "../state/todoList";
 
 const LOGGED_IN = 'auth/LOGGED_IN'

@@ -27,7 +27,7 @@ const SignUp = (props) => (
         />
         <RaisedButton
             primary={true}
-            onClick={() => props.onSignUpClick}
+            onClick={() => props.onSignUpClick()}
             label={"Sign Up"}
         />
     </div>

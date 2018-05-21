@@ -21,7 +21,7 @@ const LogInWithEmail = (props) => (
         />
         <RaisedButton
             primary={true}
-            onClick={() => props.logInWithEmail}
+            onClick={() => props.logInWithEmail()}
             label={"Log in"}
         />
     </div>

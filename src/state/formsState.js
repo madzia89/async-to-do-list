@@ -1,5 +1,4 @@
-import {store} from "../store";
-import {auth, database, googleProvider} from "../firebase";
+import {auth} from "../firebase";
 
 const SIGN_UP_EMAIL = 'formState/SIGN_UP_WITH_EMAIL'
 const SIGN_UP_PASSWORD = 'formState/SIGN_UP_PASSWORD'
@@ -15,6 +14,7 @@ export const logInPassword = (value) => ({type: LOG_IN_PASSWORD, value})
 export const logInEmail = (value) => ({type: LOG_IN_EMAIL, value})
 
 export const onSignUpClick = () => (dispatch, getState) => {
+    console.log(arguments)
     const signUpRetypePassword = getState().formState.signUpRetypePassword
     const email = getState().formState.signUpEmail
     const password = getState().formState.signUpPassword

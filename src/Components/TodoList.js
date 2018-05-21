@@ -1,8 +1,8 @@
 import React from 'react'
-import todoList, {addTask, onChange, clear, filter, deleteTask, updateAfterDelete} from '../state/todoList'
+import {addTask, onChange, clear, filter, deleteTask, updateAfterDelete} from '../state/todoList'
 import {connect} from 'react-redux'
 import {ListItem} from 'material-ui/List'
-import {Grid, Row, Col} from 'react-flexbox-grid'
+import {Row, Col} from 'react-flexbox-grid'
 
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
