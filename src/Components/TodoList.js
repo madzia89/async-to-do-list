@@ -1,21 +1,15 @@
 import React from 'react'
+import Filter from './FilterAndDelete'
 import AddTaskForm from './AddTaskForm'
-import FilterAndDelete from './FilterAndDelete'
+
 
 const Tasks = (props) => (
 
     <div>
         <AddTaskForm/>
-        <FilterAndDelete/>
+        <Filter/>
     </div>
 )
-const mapStateToProps = state => ({
-    tasks: state.todoList.tasks,
-    newText: state.todoList.newText,
-    newFilter: state.todoList.newFilter,
-})
 
 
-
-
-export default Tasks
+export default (Tasks)

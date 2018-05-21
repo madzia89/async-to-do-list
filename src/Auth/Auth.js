@@ -1,8 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {logInByGoogle} from '../state/auth'
-import RaisedButton from 'material-ui/RaisedButton'
-import {Row} from 'react-flexbox-grid'
+import {logInByGoogle} from '../state/auth' //odpowiada za logowanie googlem
+import LogInByGoogle from "./LogInByGoogle"
+import SignUp from './SignUp'
+import LogInWithEmail from './LogInWithEmail'
 import AppBar from 'material-ui/AppBar'
 
 
@@ -13,19 +14,16 @@ const Auth = (props) => (
                 props.children
                 :
                 <div>
-                    <AppBar
-                        title="Home"
-                        showMenuIconButton={false}
-                        style={{backgroundColor: '#AD1457'}}
-                    />
-                    <h1 style={{textAlign: 'center'}}>Log in to add tasks</h1>
-                    <Row center={'xs'}>
-                        <RaisedButton
-                            label={'Log in by Google!'}
-                            secondary={true}
-                            onClick={props.logInByGoogle}
+                    <AppBar title="Home"
+                            showMenuIconButton={false}
+                            style={{backgroundColor: '#AD1457'}}/>
+                    <div>
+                        <LogInByGoogle
+                            onLogInHandler={props.logInByGoogle}
                         />
-                    </Row>
+                        <LogInWithEmail/>
+                        <SignUp/>
+                    </div>
                 </div>
         }
     </div>
@@ -36,7 +34,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    logInByGoogle: () => dispatch(logInByGoogle())
+    logInByGoogle: () => dispatch(logInByGoogle()),
+
 })
 
 export default connect(

@@ -16,6 +16,7 @@ const logUserLogIn = () => (dispatch, getState) => {
         })
 }
 
+
 export const initAuthUserSync = () => (dispatch, getState) => {
     auth.onAuthStateChanged(
         user => {
@@ -35,7 +36,7 @@ export const logInByGoogle = () => (dispatch, getState) => {
 }
 
 const initialState = {
-    isUserLoggedIn: false, // wstępnie użytkownik nie będzie zalogowany
+    isUserLoggedIn: false,
     user: null
 }
 

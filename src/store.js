@@ -2,9 +2,11 @@ import {createStore, combineReducers, compose, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 import auth, {initAuthUserSync} from './state/auth'
 import todoList from './state/todoList'
+import formState from './state/formsState'
 
 
 export const reducer = combineReducers({
+    formState,
     auth,
     todoList,
 
