@@ -1,5 +1,4 @@
 import {auth, database, googleProvider} from "../firebase";
-import {store} from "../store";
 import {initTasksSync} from "../state/todoList";
 
 const LOGGED_IN = 'auth/LOGGED_IN'
@@ -16,16 +15,6 @@ const logUserLogIn = () => (dispatch, getState) => {
             timestamp: Date.now()
         })
 }
-export const logInWithEmail = (email, password) => (dispatch, getState) => {
-    auth.signInWithEmailAndPassword(email, password)
-}
-export const signUp = (email, password) => (dispatch, getState) => {
-    auth.createUserWithEmailAndPassword(email, password)
-}
-
-export const logOut = () => (dispatch, getState) => {
-    auth.signOut()
- }
 
 export const initAuthUserSync = () => (dispatch, getState) => {
     auth.onAuthStateChanged(

@@ -1,5 +1,4 @@
 import {database} from "../firebase";
-import auth from './auth'
 
 const UPDATE_ARR = 'todoList/UPDATE_ARR'
 const ON_CHANGE = 'todoList/ON_CHANGE'

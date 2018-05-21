@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Tasks from './Components/TodoList'
 import AppBar from 'material-ui/AppBar'
 import IconButton from 'material-ui/IconButton'

@@ -1,7 +1,7 @@
 import {createStore, combineReducers, compose, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 import auth, {initAuthUserSync} from './state/auth'
-import todoList, {initTasksSync} from './state/todoList'
+import todoList from './state/todoList'
 
 
 export const reducer = combineReducers({

@@ -1,0 +1,26 @@
+[debug] [2018-05-20T17:30:05.619Z] ----------------------------------------------------------------------
+[debug] [2018-05-20T17:30:05.622Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-05-20T17:30:05.622Z] CLI Version:   3.18.4
+[debug] [2018-05-20T17:30:05.622Z] Platform:      linux
+[debug] [2018-05-20T17:30:05.622Z] Node Version:  v10.0.0
+[debug] [2018-05-20T17:30:05.622Z] Time:          Sun May 20 2018 19:30:05 GMT+0200 (CEST)
+[debug] [2018-05-20T17:30:05.622Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-05-20T17:30:05.670Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-05-20T17:30:05.670Z] > authorizing via signed-in user
+[debug] [2018-05-20T17:30:05.672Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-05-20T17:30:05.672Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/aetYXhYbcKf2C53cRgul-gDtZ-CPqu8v0MvxSYUsladog73IVmLWgh1Qg6EJnN4p',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sun May 20 2018 19:30:05 GMT+0200 (CEST)
+[debug] [2018-05-20T17:30:05.844Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-20T17:30:05.889Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/todo-hw-week7  
+  
+ Sun May 20 2018 19:30:05 GMT+0200 (CEST)
+[debug] [2018-05-20T17:30:07.130Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-20T17:30:07.132Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/todo-hw-week7/tokens  
+  
+ Sun May 20 2018 19:30:07 GMT+0200 (CEST)

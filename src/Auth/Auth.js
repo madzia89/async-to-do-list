@@ -1,8 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {logInByGoogle} from '../state/auth' //odpowiada za logowanie googlem
-import LogInByGoogle from "./LogInByGoogle"
-import {Grid, Row, Col} from 'react-flexbox-grid'
+import {logInByGoogle} from '../state/auth'
+import RaisedButton from 'material-ui/RaisedButton'
+import {Row} from 'react-flexbox-grid'
 import AppBar from 'material-ui/AppBar'
 
 
@@ -20,8 +20,10 @@ const Auth = (props) => (
                     />
                     <h1 style={{textAlign: 'center'}}>Log in to add tasks</h1>
                     <Row center={'xs'}>
-                        <LogInByGoogle
-                            onLogInHandler={props.logInByGoogle}
+                        <RaisedButton
+                            label={'Log in by Google!'}
+                            secondary={true}
+                            onClick={props.logInByGoogle}
                         />
                     </Row>
                 </div>
