@@ -5,6 +5,7 @@ import LogInByGoogle from "./LogInByGoogle"
 import SignUp from './SignUp'
 import LogInWithEmail from './LogInWithEmail'
 
+
 const Auth = (props) => (
     <div>
         {
