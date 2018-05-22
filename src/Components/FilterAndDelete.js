@@ -27,7 +27,7 @@ const Filter = (props) => (
                     props.tasks
                         .filter(task => (task.toLowerCase().indexOf(props.newFilter.toLowerCase()) !== -1))
                         .map((task, i) => (
-                                <ListItem key={i}>
+                                <ListItem key={i} style={{color: 'darkslategray'}}>
                                     <Row middle="xs">
                                         <Col xs={6}>
                                             {task}

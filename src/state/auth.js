@@ -1,5 +1,6 @@
 import {auth, database, googleProvider} from "../firebase";
 import {initTasksSync} from "../state/todoList";
+import {logInsSyncer} from '../state/countLogins'
 
 const LOGGED_IN = 'auth/LOGGED_IN'
 const LOGGED_OUT = 'auth/LOGGED_OUT'
@@ -24,7 +25,7 @@ export const initAuthUserSync = () => (dispatch, getState) => {
                 dispatch(loggedIn(user))
                 dispatch(logUserLogIn())
                 dispatch(initTasksSync())
-
+                dispatch(logInsSyncer())
             } else {
                 dispatch(loggedOut())
             }

@@ -11,7 +11,7 @@ const LogInWithEmail = (props) => (
         <Paper style={{margin: '25px', padding: '25px'}}>
 
             <Row center={'xs'}>
-                <h2>or log in with email...</h2>
+                <h2 style={{color: 'darkslategray'}}>or log in with email...</h2>
             </Row>
             <Row center={'xs'}>
                 <TextField

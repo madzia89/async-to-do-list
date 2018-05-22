@@ -10,7 +10,7 @@ const SignUp = (props) => (
     <div>
         <Paper style={{margin: '25px', padding: '25px'}}>
             <Row center={'xs'}>
-                <h2>...or sign up!</h2>
+                <h2 style={{color: 'darkslategray'}}>...or sign up!</h2>
             </Row>
             <Row center={'xs'}>
                 <TextField

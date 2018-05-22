@@ -3,9 +3,11 @@ import thunk from 'redux-thunk'
 import auth, {initAuthUserSync} from './state/auth'
 import todoList from './state/todoList'
 import formState from './state/formsState'
+import countLogins from './state/countLogins'
 
 
 export const reducer = combineReducers({
+    countLogins,
     formState,
     auth,
     todoList,

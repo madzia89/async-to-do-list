@@ -8,7 +8,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 
 const AddTaskForm = (props) => (
     <div>
-        <h1 style={{textAlign: 'center', marginBottom: '50px'}}>To do list</h1>
+        <h1 style={{textAlign: 'center', marginBottom: '50px', color: 'darkslategray'}}>To do list</h1>
         <Row around={'xs'}>
             <Col md={9}>
                 <TextField

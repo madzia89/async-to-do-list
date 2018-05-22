@@ -10,7 +10,7 @@ const LogInByGoogle = (props) => (
         <Paper style={{margin: '25px', padding: '25px'}}>
         <Row center={'xs'}>
             <Col md={9}>
-                <h2>Log in with google account...</h2>
+                <h2 style={{color: 'darkslategray'}}>Log in with google account...</h2>
                 <RaisedButton
                     label={'Log in by Google!'}
                     secondary={true}
