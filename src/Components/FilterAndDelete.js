@@ -40,6 +40,7 @@ const Filter = (props) => (
                                                 onClick={() => {
                                                     props.deleteTask(task)
                                                     props.updateAfterDelete()
+                                                    props.clear()
                                                     alert('task is about to be deleted')
                                                 }
                                                 }
@@ -63,6 +64,8 @@ const mapDispatchToProps = dispatch => ({
     filter: (ev, newValue) => dispatch(filter(newValue)),
     deleteTask: (taskName) => dispatch(deleteTask(taskName)),
     updateAfterDelete: () => dispatch(updateAfterDelete()),
+    clear: () => dispatch(clear()),
+
 
 })
 

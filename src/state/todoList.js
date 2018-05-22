@@ -71,7 +71,8 @@ export default (state = initialState, action) => {
         case CLEAR :
             return{
                 ...state,
-                newText: ''
+                newText: '',
+                newFilter: ''
             }
         case FILTER:
             return {
