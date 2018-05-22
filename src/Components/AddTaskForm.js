@@ -1,6 +1,6 @@
 import React from 'react'
 import {Row, Col} from 'react-flexbox-grid'
-import {addTask, clear, deleteTask, filter, onChange, updateAfterDelete} from "../state/todoList";
+import {addTask, clear, onChange } from "../state/todoList";
 import {connect} from "react-redux";
 
 import TextField from 'material-ui/TextField'

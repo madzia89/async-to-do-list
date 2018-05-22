@@ -1,6 +1,5 @@
 import React from 'react'
-import AddTaskForm from './AddTaskForm'
-import {addTask, onChange, clear, filter, deleteTask, updateAfterDelete} from '../state/todoList'
+import {clear, filter, deleteTask, updateAfterDelete} from '../state/todoList'
 import {connect} from 'react-redux'
 import {ListItem} from 'material-ui/List'
 import {Row, Col} from 'react-flexbox-grid'

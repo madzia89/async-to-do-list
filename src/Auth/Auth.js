@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {logInByGoogle} from '../state/auth' //odpowiada za logowanie googlem
+import {logInByGoogle} from '../state/auth'
 import LogInByGoogle from "./LogInByGoogle"
 import SignUp from './SignUp'
 import LogInWithEmail from './LogInWithEmail'
