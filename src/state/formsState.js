@@ -24,6 +24,7 @@ export const onSignUpClick = () => (dispatch, getState) => {
         return
     }
     auth.createUserWithEmailAndPassword(email, password)
+        .catch(() => alert('Something went wrong... make sure your password is 6 characters long'))
 }
 
 
@@ -31,6 +32,7 @@ export const logInWithEmail = () => (dispatch, getState) => {
     const email = getState().formState.loginEmail
     const password = getState().formState.loginPassword
     auth.signInWithEmailAndPassword(email, password)
+        .catch(() => alert('Something went wrong...'))
 }
 
 

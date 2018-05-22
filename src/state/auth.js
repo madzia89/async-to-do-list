@@ -15,6 +15,7 @@ const logUserLogIn = () => (dispatch, getState) => {
         .push({
             timestamp: Date.now()
         })
+
 }
 
 

@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {TextField, RaisedButton} from 'material-ui'
 import {signUpEmail, signUpPassword, signUpRetypePassword, onSignUpClick} from "../state/formsState";
-import {Row, Col} from 'react-flexbox-grid'
+import {Row} from 'react-flexbox-grid'
 import Paper from 'material-ui/Paper'
 
 
@@ -18,6 +18,12 @@ const SignUp = (props) => (
                     placeholder={'E-mail'}
                     type={"email"}
                     onChange={props.signUpEmail}
+                    onKeyPress={(ev) => {
+                        if ((ev.key === 'Enter') && (props.newText !== '')) {
+                            props.onSignUpClick()
+                        }
+                    }
+                    }
                 />
             </Row>
             <Row center={'xs'}>
@@ -26,6 +32,11 @@ const SignUp = (props) => (
                     placeholder={'Password'}
                     type={"password"}
                     onChange={props.signUpPassword}
+                    onKeyPress={(ev) => {
+                        if ((ev.key === 'Enter') && (props.newText !== '')) {
+                            props.onSignUpClick()
+                        }
+                    }}
                 />
             </Row>
             <Row center={'xs'}>
@@ -34,6 +45,11 @@ const SignUp = (props) => (
                     placeholder={'Retype password'}
                     type={"password"}
                     onChange={props.signUpRetypePassword}
+                    onKeyPress={(ev) => {
+                        if ((ev.key === 'Enter') && (props.newText !== '')) {
+                            props.onSignUpClick()
+                        }
+                    }}
                 />
             </Row>
             <Row center={'xs'}>

@@ -12,7 +12,7 @@ const LogInByGoogle = (props) => (
             <Col md={9}>
                 <h2 style={{color: 'darkslategray'}}>Log in with google account...</h2>
                 <RaisedButton
-                    label={'Log in by Google!'}
+                    label={'Log in with Google!'}
                     secondary={true}
                     onClick={props.onLogInHandler}
                 />

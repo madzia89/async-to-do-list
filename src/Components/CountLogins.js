@@ -1,11 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import countLogins from '../state/countLogins'
-
 
 const CountLogins = (props) => (
     <div>
-        <p style={{textAlign: 'center', color: 'darkslategray'}}>We're so happy to see you for the {props.loginsNumber.length}th time!</p>
+        <p style={{textAlign: 'center', color: 'darkslategray'}}>
+            Wow! you have logged in {props.loginsNumber.length} times!</p>
         {console.log(props.loginsNumber.length)}
     </div>
 )

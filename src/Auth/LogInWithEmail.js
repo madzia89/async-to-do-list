@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {TextField, RaisedButton} from 'material-ui'
 import {logInEmail, logInPassword, logInWithEmail} from "../state/formsState";
-import {Row, Col} from 'react-flexbox-grid'
+import {Row} from 'react-flexbox-grid'
 import Paper from 'material-ui/Paper'
 
 
@@ -19,6 +19,12 @@ const LogInWithEmail = (props) => (
                     placeholder={'E-mail'}
                     type={"email"}
                     onChange={props.logInEmail}
+                    onKeyPress={(ev) => {
+                        if ((ev.key === 'Enter') && (props.newText !== '')) {
+                            props.logInWithEmail()
+                        }
+                    }
+                    }
                 />
             </Row>
             <Row center={'xs'}>
@@ -27,6 +33,12 @@ const LogInWithEmail = (props) => (
                     placeholder={'Password'}
                     type={"password"}
                     onChange={props.logInPassword}
+                    onKeyPress={(ev) => {
+                        if ((ev.key === 'Enter') && (props.newText !== '')) {
+                            props.logInWithEmail()
+                        }
+                    }
+                    }
                 />
             </Row>
             <Row center={'xs'}>
