@@ -23,9 +23,9 @@ export const filter = (newFilterValue) => ({
     newFilterValue
 })
 
-export const deleteTask = (index) => ({
+export const deleteTask = (taskName) => ({
     type: DELETE_TASK,
-    index
+    taskName
 })
 
 export const addTask = () => (dispatch, getState) => {
@@ -81,7 +81,7 @@ export default (state = initialState, action) => {
         case DELETE_TASK:
             return{
                 ...state,
-                tasks: state.tasks.filter((task, index) => index !== action.index )
+                tasks: state.tasks.filter(task => task !== action.taskName )
             }
         default:
             return state
